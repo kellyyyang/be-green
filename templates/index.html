@@ -1,19 +1,24 @@
 {% extends 'base.html' %}
 
 {% block head %}
+
 <title>Home Page</title>
 {% endblock %}
 
 {% block body %}
+<img class="center" src="{{url_for('static', filename='media/imgs/logo.png')}}"/>
 <h1> Please upload a link to a photo here:</h1>
 <div>
     <form action= "/results", method = post>   
 				<!-- name`  attribute specifies the name of a form.  -->
 				<!-- used to reference elements in JS OR
 				to reference form data after a form is submitted -->
-			<input type="text"	 name="link">
+			<input class = "center pad" type="text"	 name="link">
+			<br> </br> 
+
+
 			<!-- submit = button!; value = what shows up on the button-->
-			<input type="submit" value="Submit">
+			<input class = "button center" type="submit" value="Submit">
 		</form>
 	</div>
 {% endblock %}

@@ -20,10 +20,9 @@ BURGER_URL = "https://assets.afcdn.com/recipe/20130627/42230_w1024h1024c1cx1250c
 metadata = (("authorization", f"Key {API_KEY}"),)
 
 
-
 def get_label(input_url):
     ''' input:  input_url, a string representing the input URL
-        output: the highest-probability label
+        output: the highest-probability label (name, CO2 emissions)
     '''
     request = service_pb2.PostModelOutputsRequest(
 
