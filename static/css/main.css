@@ -22,7 +22,9 @@ body {
 }
 
 
-
+.big_news {
+   color:rgb(34, 132, 29);
+}
  
   
 
@@ -35,7 +37,7 @@ input {
 	font-size: 20px;
 	width: 40%;
 	box-sizing: border-box;
-	display: block;
+	/* display: block; */
 	margin: 8px 0;
     text-align: center;
 	/* font-family: "IBM Plex Sans", sans-serif; */
@@ -78,3 +80,6 @@ input[type="submit"]:hover {
 
 .button:hover {
 	opacity: 0.9;}
+
+
+    

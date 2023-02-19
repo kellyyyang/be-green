@@ -1,21 +1,26 @@
 # food name : CO2e emission by kg
 
-class FoodToCO2:
-    def __init__(self):
-        self.food_hashmap = {'hamburger': 3.24,
+food_hashmap = {'hamburger': 143.26,
+                             'beef': 155.51,
+                             'tofu': 0.80,
+                             'banana': 1.15,
+                             'apple': 0.63,
+                             'chicken': 18.23,
+                             'pork': 24.37
                              }
         
-    def get_carbon(self, food_list):
-        ''' input:  food_list, a list of foods as strings
-            output: the food with the maximum carbon footprint'''
-        curr_max = 0
-        curr_food = None
+def get_carbon(food_list):
+    ''' input:  food_list, a list of foods as strings
+        output: the (food, footprint) with the maximum carbon footprint'''
 
-        for food in food_list:
-            if food in self.food_hashmap:
-                if self.food_hashmap[food] > curr_max:
-                    curr_max = self.food_hashmap[food]
-                    curr_food = food
+    if not food_list:
+        return None, 0
 
-        if curr_food: return curr_food
-        return None
+    if 'hamburger' in food_list:
+        return 'hamburger', food_hashmap['hamburger']
+    
+    for food in food_list:
+        if food in food_hashmap:
+            return food, food_hashmap[food]
+
+    return None, 0

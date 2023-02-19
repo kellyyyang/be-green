@@ -12,9 +12,10 @@ load_dotenv()
 
 API_KEY = os.getenv('ALL_SCOPES_API_KEY')
 APP_ID = os.getenv('APP_ID')
-# SAMPLE_URL = "https://samples.clarifai.com/metro-north.jpg"
-SAMPLE_URL = "https://i.natgeofe.com/n/5f35194b-af37-4f45-a14d-60925b280986/NationalGeographic_2731043_4x3.jpg"
-BURGER_URL = "https://assets.afcdn.com/recipe/20130627/42230_w1024h1024c1cx1250cy1875.jpg"
+
+BURGER_URL = "https://static.onecms.io/wp-content/uploads/sites/43/2022/09/26/25473-the-perfect-basic-burger-ddmfs-4x3-1350-1.jpg"
+CHICKEN_URL = 'https://tmbidigitalassetsazure.blob.core.windows.net/rms3-prod/attachments/37/1200x1200/Crispy-Fried-Chicken_EXPS_TOHJJ22_6445_DR%20_02_03_11b.jpg'
+PORK_URL = 'https://assets.epicurious.com/photos/54e7ad824f77a310045d7835/16:9/w_2000,h_1125,c_limit/EP-201502-Pork-6x4.jpg'
 
 # This is how you authenticate.
 metadata = (("authorization", f"Key {API_KEY}"),)
@@ -26,7 +27,7 @@ def get_label(input_url):
     '''
     request = service_pb2.PostModelOutputsRequest(
 
-    # This is the model ID of a publicly available General model. You may use any other public or custom model ID.
+    # This is the model ID of a publicly available food model. You may use any other public or custom model ID.
     model_id="9504135848be0dd2c39bdab0002f78e9",
     user_app_id=resources_pb2.UserAppIDSet(app_id=APP_ID),
     inputs=[
@@ -41,12 +42,12 @@ def get_label(input_url):
         print(response)
         raise Exception(f"Request failed, status code: {response.status}")
 
+    output = []
+
     for concept in response.outputs[0].data.concepts:
-        print("%12s: %.2f" % (concept.name, concept.value))
+        output.append(concept.name)
+        # print("%12s: %.2f" % (concept.name, concept.value))
 
-    output, value = response.outputs[0].data.concepts[0].name, response.outputs[0].data.concepts[0].value
+    return output
 
-    return (output, value)
-
-get_label(BURGER_URL)
 # print(get_label(BURGER_URL))
