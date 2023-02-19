@@ -49,7 +49,7 @@ def send_checkbook():
     return render_template('thank_you.html', results = org)
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
 
 
 
