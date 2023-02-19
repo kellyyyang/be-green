@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 from FoodToCO2 import get_carbon
 
 from checkbook import send_checkbook_form
@@ -6,6 +6,7 @@ from estuary import upload
 
 import os 
 from clarifai_setup import get_label
+
 
 CHECKBOOK_API_KEY = os.getenv('CHECKBOOK_API_KEY')
 CHECKBOOK_API_SECRET = os.getenv('CHECKBOOK_API_SECRET')
@@ -17,8 +18,9 @@ app = Flask(__name__)
 
 def create_image(url):
     img_data = requests.get(url).content
-    with open('static/media/imgs/imgs.jpg', 'xb') as handler:
+    with open('static/media/imgs/imgs.jpg', 'wb') as handler:
         handler.write(img_data)
+
 
 
 @app.route('/')

@@ -22,6 +22,6 @@ def upload():
 
     response = requests.request("POST", url, headers=headers, data=payload, files=files)
 
-    print(response.text)
+    # print(response.text)
 
 upload()
