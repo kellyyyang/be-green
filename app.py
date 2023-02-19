@@ -21,6 +21,9 @@ def create_image(url):
     with open('static/media/imgs/imgs.jpg', 'wb') as handler:
         handler.write(img_data)
 
+    # with open('tmp/imgs.jpg', 'wb') as handler:
+    #     handler.write(img_data)
+
 
 
 @app.route('/')
