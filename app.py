@@ -48,8 +48,8 @@ def send_checkbook():
     upload() 
     return render_template('thank_you.html', results = org)
 
-# if __name__ == '__main__':
-#     app.run(debug=False)
+if __name__ == '__main__':
+    app.run(debug=False)
 
 
 

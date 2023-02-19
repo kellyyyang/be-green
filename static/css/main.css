@@ -1,7 +1,7 @@
 body {
     background: #f9eeda;
     margin: auto;
-    padding: 7%; 
+    padding: 5%; 
     font-family: 'Lexend Deca', sans-serif; 
     text-align: center;
 }
@@ -44,6 +44,7 @@ input {
 }
 
 input[type="submit"] {
+	/* width: 40%; */
 	background-color: rgb(34, 132, 29);
 	border: 0;
 	color: white;
@@ -83,7 +84,7 @@ input[type="submit"]:hover {
 
 
 .info-text {
-	padding-top: 5%;
+	/* padding-top: 5%; */
 	padding-left: 10%;
 	padding-right: 10%;
 	
