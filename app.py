@@ -33,7 +33,7 @@ def getvalue():
     create_image(url)
     food_list = get_label(url)
     name, co2 = get_carbon(food_list)
-    return render_template('result.html', name = name, co2 = round(co2, 3), co2_string = str(round(co2, 3)))
+    return render_template('result.html', name = name.capitalize(), co2 = round(co2, 3), co2_string = str(round(co2, 3)))
 
 # Used to send donations using Checkbook API
 @app.route('/checkbook', methods=['POST'])
@@ -48,8 +48,8 @@ def send_checkbook():
     upload() 
     return render_template('thank_you.html', results = org)
 
-if __name__ == '__main__':
-    app.run(debug=False)
+# if __name__ == '__main__':
+#     app.run(debug=False)
 
 
 

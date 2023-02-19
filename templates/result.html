@@ -10,10 +10,11 @@
 {% endblock %}
 
 {% block body %}
-<h3> Thank you for your picture! [we sent it over to estuary???] </h3>
+<h3> Thank you for your picture! </h3>
 <img class = "center" src="{{url_for('static', filename='media/imgs/imgs.jpg')}}"/>
 <h3> The most wasteful food in your picture is: </h3>
-<h1 class = "big_news"> {{ name }} = Estimated Carbon Emission: {{ co2 }} /kg! </h1>
+<h1 class = "big_news"> {{ name }} </h1>
+<h1 class = "big_news"> Estimated Carbon Emission: {{ co2 }} /kg! </h1>
 
 
 <script> 
