@@ -27,13 +27,15 @@ def create_image(url):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    url = "https://i.natgeofe.com/n/5f35194b-af37-4f45-a14d-60925b280986/NationalGeographic_2731043_4x3.jpg"
+    return render_template('index.html', url = url)
 
 # Used to send HTML form data to the server. 
 
 @app.route('/results',methods=['POST'])
 def getvalue():
     url = request.form['link']
+    print(url)
     create_image(url)
     food_list = get_label(url)
     name, co2 = get_carbon(food_list)
