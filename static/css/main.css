@@ -1,7 +1,7 @@
 body {
     background: #f9eeda;
     margin: auto;
-    padding: 50px; 
+    padding: 7%; 
     font-family: 'Lexend Deca', sans-serif; 
     text-align: center;
 }
@@ -82,4 +82,9 @@ input[type="submit"]:hover {
 	opacity: 0.9;}
 
 
-    
+.info-text {
+	padding-top: 5%;
+	padding-left: 10%;
+	padding-right: 10%;
+	
+}

@@ -10,21 +10,23 @@
 {% endblock %}
 
 {% block body %}
-<h3> Thank you for your picture! </h3>
+
 <img class = "center" src="{{url_for('static', filename='media/imgs/imgs.jpg')}}"/>
 <h3> The most wasteful food in your picture is: </h3>
 <h1 class = "big_news"> {{ name }} </h1>
-<h1 class = "big_news"> Estimated Carbon Emission: {{ co2 }} /kg! </h1>
+<h3> with an estimated carbon emission per kilogram of </h3>
+<h1 class = "big_news">  {{ co2 }} </h1>
 
+<h3> For reference, the slider below visualizes how good (close to the right) or bad (close to the left) {{ name }} is relative to other foods users have uploaded! </h3>
 
-<script> 
-
-</script>
 <div class = "center">
     <div class="slidecontainer">
         <input type="range" min="1" max="170" value = {{ co2_string }} class="slider" id="myRange" disabled>
     </div>
 </div>
+
+
+<h3 class = "info-text"> There are a lot of good organizations doing work in reducing food waste, farming more ethically, and increasing awareness of the relatinoship between carbon emissions and food. For every user that uploads an app, Eat Fresh will donate a dollar to one of the organizations below! Fill out the form and leave a message in appreciation for these companies! </h3>
 
 <div>
     <form method="POST" action="/checkbook">
@@ -34,7 +36,6 @@
       
       <!-- <label for="amount">Amount:</label> -->
       <input type="text" name="description" id="description" placeholder="Description"> 
-
       <div>
         <h1> Select An Organization </h1>
         <select class = "custom-select" id="org" name="org">
