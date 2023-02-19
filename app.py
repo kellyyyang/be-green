@@ -30,7 +30,7 @@ def index():
 @app.route('/results',methods=['POST'])
 def getvalue():
     url = request.form['link']
-    # create_imagxe(url)
+    create_image(url)
     food_list = get_label(url)
     name, co2 = get_carbon(food_list)
     return render_template('result.html', lowercase = name, name = name.capitalize(), co2 = round(co2, 3), co2_string = str(round(co2, 3)))

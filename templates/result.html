@@ -10,12 +10,13 @@
 {% endblock %}
 
 {% block body %}
-<h2> Your image: </h2>
+<h2> Your Image: </h2>
 <img class = "center" src="{{url_for('static', filename='media/imgs/imgs.jpg')}}"/>
 <h3> The most wasteful food in your picture is: </h3>
 <h1 class = "big_news"> {{ name }} </h1>
-<h3> with an estimated carbon emission per kilogram of </h3>
+<h3> with an estimated </h3>
 <h1 class = "big_news">  {{ co2 }} </h1>
+<h3> kilograms of carbon emission per kilogram of {{ lowercase }} </h3>
 
 <h3> For reference, the slider below visualizes how good (close to the left) or bad (close to the right) {{ lowercase }} is relative to other foods users have uploaded! </h3>
 
@@ -26,17 +27,17 @@
 </div>
 
 
-<h3 class = "info-text"> There are a lot of good organizations doing work in reducing food waste, farming more ethically, and increasing awareness of the relatinoship between carbon emissions and food. For every user that uploads an app, Eat Fresh will donate a dollar to one of the organizations below! Fill out the form and leave a message in appreciation for these companies! </h3>
+<h3 class = "info-text"> There are a lot of good organizations doing work in reducing food waste, farming more ethically, and increasing awareness of the relationship between carbon emissions and food. For every user that uploads an app, Eat Fresh will donate a dollar to one of the organizations below! Fill out the form and leave a message in appreciation for these orgs! </h3>
 
 <div>
-    <h2> Donate a dollar, Fill out the form! </h2>
+    <h2> Donate a dollar, fill out the form! </h2>
     <form method="POST" action="/checkbook">
       <!-- <label for="fname">Name</label> -->
       <input type="text" id="name" name="name" placeholder="First and Last Name">
   
       
       <!-- <label for="amount">Amount:</label> -->
-      <input type="text" name="description" id="description" placeholder="Description"> 
+      <input type="text" name="description" id="description" placeholder="Message"> 
       <div>
         <h2> Select An Organization </h2>
         <select class = "custom-select" id="org" name="org">
