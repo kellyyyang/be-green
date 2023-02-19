@@ -16,14 +16,13 @@ import requests
 app = Flask(__name__)
 
 
+
+
+
 def create_image(url):
     img_data = requests.get(url).content
     with open('static/media/imgs/imgs.jpg', 'wb') as handler:
         handler.write(img_data)
-
-    # with open('tmp/imgs.jpg', 'wb') as handler:
-    #     handler.write(img_data)
-
 
 
 @app.route('/')
@@ -38,7 +37,7 @@ def getvalue():
     create_image(url)
     food_list = get_label(url)
     name, co2 = get_carbon(food_list)
-    return render_template('result.html', lowercase = name, name = name.capitalize(), co2 = round(co2, 3), co2_string = str(round(co2, 3)))
+    return render_template('result.html', url = url, lowercase = name, name = name.capitalize(), co2 = round(co2, 3), co2_string = str(round(co2, 3)))
 
 # Used to send donations using Checkbook API
 @app.route('/checkbook', methods=['POST'])
