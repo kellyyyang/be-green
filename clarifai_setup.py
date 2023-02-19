@@ -16,6 +16,7 @@ APP_ID = os.getenv('APP_ID')
 BURGER_URL = "https://static.onecms.io/wp-content/uploads/sites/43/2022/09/26/25473-the-perfect-basic-burger-ddmfs-4x3-1350-1.jpg"
 CHICKEN_URL = 'https://tmbidigitalassetsazure.blob.core.windows.net/rms3-prod/attachments/37/1200x1200/Crispy-Fried-Chicken_EXPS_TOHJJ22_6445_DR%20_02_03_11b.jpg'
 PORK_URL = 'https://assets.epicurious.com/photos/54e7ad824f77a310045d7835/16:9/w_2000,h_1125,c_limit/EP-201502-Pork-6x4.jpg'
+LEAF_URL = 'https://cdn.britannica.com/77/170677-050-F7333D51/lettuce.jpg'
 
 # This is how you authenticate.
 metadata = (("authorization", f"Key {API_KEY}"),)
@@ -45,9 +46,13 @@ def get_label(input_url):
     output = []
 
     for concept in response.outputs[0].data.concepts:
-        output.append(concept.name)
-        # print("%12s: %.2f" % (concept.name, concept.value))
+        if (concept.value > 0.5):
+            output.append(concept.name)
+            print("here", concept.name)
+            # print("type:", type(concept.value))
+        print("%12s: %.2f" % (concept.name, concept.value))
 
+    print("output", output)
     return output
 
-# print(get_label(BURGER_URL))
+print(get_label(LEAF_URL))
