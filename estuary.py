@@ -7,13 +7,13 @@ ESTUARY_API_KEY = os.getenv('ESTUARY_API_KEY')
 
 import requests
 
-def upload():
+def upload(url):
 
     url = "https://api.estuary.tech/content/add"
 
     payload={}
     files=[
-    ('data',('file',open('static/media/imgs/imgs.jpg','rb'),'application/octet-stream'))
+    ('data',(url))
     ]
     headers = {
     'Accept': 'application/json',
@@ -22,6 +22,5 @@ def upload():
 
     response = requests.request("POST", url, headers=headers, data=payload, files=files)
 
-    # print(response.text)
+    print(response.text)
 
-upload()

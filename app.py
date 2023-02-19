@@ -16,7 +16,7 @@ import requests
 app = Flask(__name__)
 
 
-
+URL_OF_PICTURE = ""
 
 
 def create_image(url):
@@ -36,6 +36,7 @@ def index():
 def getvalue():
     url = request.form['link']
     print(url)
+    URL_OF_PICTURE = url 
     # create_image(url)
     food_list = get_label(url)
     name, co2 = get_carbon(food_list)
@@ -51,7 +52,7 @@ def send_checkbook():
     org, description = request.form['org'], request.form['description']
 
     send_checkbook_form(org, description)
-    upload() 
+    upload(URL_OF_PICTURE) 
     return render_template('thank_you.html', results = org)
 
 if __name__ == '__main__':
