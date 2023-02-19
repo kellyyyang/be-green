@@ -36,7 +36,7 @@ def index():
 def getvalue():
     url = request.form['link']
     print(url)
-    create_image(url)
+    # create_image(url)
     food_list = get_label(url)
     name, co2 = get_carbon(food_list)
     return render_template('result.html', url = url, lowercase = name, name = name.capitalize(), co2 = round(co2, 3), co2_string = str(round(co2, 3)))
